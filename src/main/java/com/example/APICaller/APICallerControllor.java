@@ -30,7 +30,7 @@ public class APICallerControllor {
     	try {
             RestTemplate rest = new RestTemplate();
         	
-            final String url = "https://yhat-rssidecn-stg.herokuapp.com/callRssideApi?kbn=heroku";
+            final String url = "https://yhat-rssidecn-stg.herokuapp.com/callRssideApi?kbn=testheroku";
     	
             ResponseEntity<String> response = rest.getForEntity(url, String.class);
     	
