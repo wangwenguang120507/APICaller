@@ -48,6 +48,28 @@ public class APICallerControllor {
         return "APICaller";
     }
 	
+    @RequestMapping("/testRssideApiHttp")
+    public String testRssideApiHttp(Model model) {
+    	try {
+            RestTemplate rest = new RestTemplate();
+        	
+            final String url = "https://yhat-rssidecn-stg.herokuapp.com/callRssideApiHttp?kbn=testheroku";
+    	
+            ResponseEntity<String> response = rest.getForEntity(url, String.class);
+    	
+            String json = response.getBody();
+            
+            model.addAttribute("hello", json + "！");
+            
+            System.out.println("■■■■■■■■■■　" + json);
+          
+    	} catch (Exception e) {
+    		model.addAttribute("hello", "Applicationの呼び出すエラーが発生してしまった！");
+    		return "APICaller";
+    	}
+      
+        return "APICaller";
+    }
     /********************* サンプルコードをいったんコメントアウトとする***********************
      
     @RequestMapping("/APICaller")
